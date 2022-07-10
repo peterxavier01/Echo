@@ -70,7 +70,13 @@ body {
 }
 
 .not-supported {
+  color: rgb(202, 59, 59) !important;
+}
+
+.not-supported a {
   color: rgb(202, 59, 59);
+  text-decoration: none;
+  font-weight: 700;
 }
 
 @keyframes fade-out {
