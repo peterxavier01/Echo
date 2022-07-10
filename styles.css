@@ -50,12 +50,22 @@ body {
   margin-top: 0.5em;
   font-weight: 700;
   letter-spacing: -1px;
+  font-style: italic;
 }
 
 #form p {
   font-size: 0.9rem;
   margin-bottom: 1em;
   letter-spacing: 1px;
+}
+
+#form #msg {
+  font-size: 0.8rem;
+  color: hsl(180, 100%, 25%);
+}
+
+.not-supported {
+  color: rgb(202, 59, 59);
 }
 
 .input-container {

@@ -5,6 +5,17 @@ const textarea = document.querySelector("textarea"),
 let speechSynth = speechSynthesis;
 let isSpeaking = true;
 
+var supportMsg = document.getElementById("msg");
+
+if ("speechSynthesis" in window) {
+  supportMsg.innerHTML =
+    "Your browser <strong>supports</strong> speech synthesis.";
+} else {
+  supportMsg.innerHTML =
+    'Sorry your browser <strong>does not support</strong> speech synthesis.<br>Try this in <a href="http://www.google.co.uk/intl/en/chrome/browser/canary.html">Chrome Canary</a>.';
+  supportMsg.classList.add("not-supported");
+}
+
 function voices() {
   for (let voice of speechSynth.getVoices()) {
     if (voiceList.value) {
