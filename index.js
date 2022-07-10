@@ -17,29 +17,29 @@ if ("speechSynthesis" in window) {
 }
 
 function voices(langSubstr) {
-  for (let voice of speechSynth.getVoices()) {
+  speechSynthesis.getVoices().filter((voice) => {
     if (voiceList.value) {
-      var selected = speechSynthesis.getVoices().filter((voice) => {
-        return [
-          voice.voiceURI == voiceList.value,
-          voice.lang.replace("_", "-").substring(0, langSubstr.length) ===
-            langSubstr,
-        ];
-      })[0];
+      var selected = voice.voiceURI == voiceList.value;
     }
     let option = ` <option value="${voice.name}" ${selected}>${voice.name} (${voice.lang})</option>`;
     voiceList.insertAdjacentHTML("beforeend", option); // insert option tag before end of select element
-  }
+    speechSynthesis.getVoices().filter((voice) => {
+      return (
+        voice.lang.replace("_", "-").substring(0, langSubstr.length) ===
+        langSubstr
+      );
+    });
+  });
 }
 
 window.speechSynthesis.onvoiceschanged = (e) => {
-  voices("");
+  voices("en");
 };
 
 function textToSpeech(text) {
   let utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = utterance.voice?.lang;
-  // set sppech voice to user selected voice if available
+  // set speech voice to user selected voice if available
   for (let voice of speechSynth.getVoices()) {
     if (voice.name === voiceList.value) {
       utterance.voice = voice;

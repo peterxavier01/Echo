@@ -61,7 +61,7 @@ body {
 }
 
 #form #msg {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   transition: ease-out;
   color: hsl(180, 100%, 25%);
   animation: fade-out 1s ease-out 5s forwards;
