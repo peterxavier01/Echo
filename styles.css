@@ -1,6 +1,6 @@
 :root {
   --white: #fff;
-  --primary-clr: #22181C;
+  --primary-clr: #22181c;
   --darkGrey: #333;
   --grey: #999;
 }
@@ -43,6 +43,7 @@ body {
   align-items: center;
   width: 350px;
   padding: 0 1em;
+  overflow: hidden;
 }
 
 #form header {
@@ -55,17 +56,27 @@ body {
 
 #form p {
   font-size: 0.9rem;
-  margin-bottom: 1em;
+  margin-bottom: .5em;
   letter-spacing: 1px;
 }
 
 #form #msg {
   font-size: 0.8rem;
+  transition: ease-out;
   color: hsl(180, 100%, 25%);
+  animation: fade-out 1s ease-out 5s forwards;
+  position: relative;
+  left: 0;
 }
 
 .not-supported {
   color: rgb(202, 59, 59);
+}
+
+@keyframes fade-out {
+  100% {
+    left: 100vw;
+  }
 }
 
 .input-container {
