@@ -23,14 +23,14 @@ function voices() {
     }
     let option = ` <option value="${voice?.name}" ${selected}>${voice?.name} (${voice?.lang})</option>`;
     voiceList.insertAdjacentHTML("beforeend", option); // insert option tag before end of select element
-    changeSymbol("")
+    changeSymbol(selected);
   });
 }
 
 function changeSymbol(langSubstr) {
   speechSynthesis.getVoices().filter((voice) => {
     return (
-      voice.lang.replace("_", "-").substring(0, langSubstr.length) ===
+      voice?.lang.replace("_", "-").substring(0, langSubstr?.length) ===
       langSubstr
     );
   });
