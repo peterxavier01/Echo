@@ -19,9 +19,9 @@ if ("speechSynthesis" in window) {
 function voices() {
   speechSynthesis.getVoices().filter((voice) => {
     if (voiceList.value) {
-      var selected = voice.voiceURI == voiceList.value;
+      var selected = voice?.voiceURI == voiceList.value;
     }
-    let option = ` <option value="${voice.name}" ${selected}>${voice.name} (${voice.lang})</option>`;
+    let option = ` <option value="${voice?.name}" ${selected}>${voice?.name} (${voice?.lang})</option>`;
     voiceList.insertAdjacentHTML("beforeend", option); // insert option tag before end of select element
     changeSymbol("")
   });
