@@ -7,10 +7,11 @@ let isSpeaking = true;
 
 function voices() {
   for (let voice of speechSynth.getVoices()) {
-    let selected =
-      voice.name === "Microsoft Zira - English (United States)"
-        ? "selected"
-        : ""; // Selecting Microsoft Zira as default
+    if (voiceList.value) {
+      var selected = speechSynthesis.getVoices().filter((voice) => {
+        return voice.voiceURI == voiceList.value;
+      })[0];
+    }
     let option = ` <option value="${voice.name}" ${selected}>${voice.name} (${voice.lang})</option>`;
     voiceList.insertAdjacentHTML("beforeend", option); // insert option tag before end of select element
   }

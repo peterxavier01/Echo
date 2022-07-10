@@ -89,6 +89,7 @@ label {
   margin-bottom: 0.5em;
   border: 1px solid var(--grey);
   font-size: 0.9rem;
+  background-color: transparent;
 }
 
 #form button {
