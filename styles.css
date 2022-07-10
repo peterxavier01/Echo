@@ -1,0 +1,118 @@
+:root {
+  --white: #fff;
+  --primary-clr: #38686A;
+  --darkGrey: #333;
+  --grey: #999;
+}
+
+::-webkit-scrollbar {
+  background-color: var(--grey);
+  width: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--darkGrey);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  background-color: var(--primary-clr);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--darkGrey);
+}
+
+#form {
+  background-color: var(--white);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  padding: 0 1em;
+}
+
+#form header {
+  font-size: 2rem;
+  margin-top: 0.5em;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+#form p {
+  font-size: 0.9rem;
+  margin-bottom: 1em;
+  letter-spacing: 1px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+#form :where(textarea, select, button) {
+  outline: none;
+  width: 100%;
+}
+
+.input-container textarea {
+  resize: none;
+  /* overflow: hidden; */
+  min-height: 150px;
+  padding: 0.5em;
+  font-size: 0.9rem;
+  border: 1px solid var(--grey);
+}
+
+.input-container select {
+  padding: 1em;
+  margin-bottom: 0.5em;
+  border: 1px solid var(--grey);
+  font-size: 0.9rem;
+}
+
+#form button {
+  padding: 1.5em 1em;
+  margin-bottom: 2em;
+  background-color: var(--primary-clr);
+  color: var(--white);
+  border: 2px solid var(--primary-clr);
+  border-radius: 10px;
+  width: 100%;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+#form button:hover {
+  background-color: var(--white);
+  color: var(--primary-clr);
+  transition: 200ms ease-in-out;
+  border: 2px solid var(--primary-clr);
+}
+
+@media screen and (max-width: 320px) {
+  #form {
+    width: 280px;
+  }
+}
