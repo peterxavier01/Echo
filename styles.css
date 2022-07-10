@@ -1,6 +1,6 @@
 :root {
   --white: #fff;
-  --primary-clr: #38686A;
+  --primary-clr: #22181C;
   --darkGrey: #333;
   --grey: #999;
 }
@@ -77,8 +77,7 @@ label {
 
 .input-container textarea {
   resize: none;
-  /* overflow: hidden; */
-  min-height: 150px;
+  min-height: 120px;
   padding: 0.5em;
   font-size: 0.9rem;
   border: 1px solid var(--grey);
