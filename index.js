@@ -16,23 +16,17 @@ if ("speechSynthesis" in window) {
   supportMsg.classList.add("not-supported");
 }
 
-function changeSymbol(langSubstr) {
+function voices(langSubstr) {
   speechSynthesis.getVoices().filter((voice) => {
-    return (
-      voice?.lang.replace("_", "-").substring(0, langSubstr?.length) ===
-      langSubstr
-    );
-  });
-}
-
-function voices() {
-  speechSynthesis.getVoices().filter((voice) => {
-    changeSymbol(voice.lang);
     if (voiceList.value) {
       var selected = voice?.voiceURI == voiceList.value;
     }
     let option = ` <option value="${voice?.name}" ${selected}>${voice?.name} (${voice?.lang})</option>`;
     voiceList.insertAdjacentHTML("beforeend", option); // insert option tag before end of select element
+    return (
+      voice?.lang.replace("_", "-").substring(0, langSubstr?.length) ===
+      langSubstr
+    );
   });
 }
 
