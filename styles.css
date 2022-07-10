@@ -103,6 +103,10 @@ label {
   width: 100%;
 }
 
+#form :where(textarea, select) {
+  border-radius: 5px;
+}
+
 .input-container textarea {
   resize: none;
   min-height: 120px;
