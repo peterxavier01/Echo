@@ -16,11 +16,15 @@ if ("speechSynthesis" in window) {
   supportMsg.classList.add("not-supported");
 }
 
-function voices() {
+function voices(langSubstr) {
   for (let voice of speechSynth.getVoices()) {
     if (voiceList.value) {
       var selected = speechSynthesis.getVoices().filter((voice) => {
-        return voice.voiceURI == voiceList.value;
+        return [
+          voice.voiceURI == voiceList.value,
+          voice.lang.replace("_", "-").substring(0, langSubstr.length) ===
+            langSubstr,
+        ];
       })[0];
     }
     let option = ` <option value="${voice.name}" ${selected}>${voice.name} (${voice.lang})</option>`;
@@ -29,11 +33,12 @@ function voices() {
 }
 
 window.speechSynthesis.onvoiceschanged = (e) => {
-  voices();
+  voices("");
 };
 
 function textToSpeech(text) {
   let utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = utterance.voice?.lang;
   // set sppech voice to user selected voice if available
   for (let voice of speechSynth.getVoices()) {
     if (voice.name === voiceList.value) {
